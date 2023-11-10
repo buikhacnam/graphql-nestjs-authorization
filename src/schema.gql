@@ -1,0 +1,60 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuthResponse {
+  accessToken: String!
+  refreshToken: String!
+  tokenId: String!
+  userInfo: UserInfo!
+}
+
+type LogoutResponse {
+  loggedOut: Boolean!
+}
+
+type Mutation {
+  blockUser(email: String!): String!
+  getRefreshToken: AuthResponse!
+  signin(signInInput: SignInInput!): AuthResponse!
+  signout(tokenId: String!): LogoutResponse!
+  signup(signUpInput: SignUpInput!): AuthResponse!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+}
+
+type Query {
+  adminAndUserCanQuery: String!
+  adminCanQuery: String!
+  findAllUser: [User!]!
+  me: User!
+  public: String!
+}
+
+input SignInInput {
+  email: String!
+  password: String!
+}
+
+input SignUpInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+}
+
+input UpdateUserInput {
+  firstName: String!
+  lastName: String!
+}
+
+type User {
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+}
+
+type UserInfo {
+  email: String!
+  id: String!
+}
